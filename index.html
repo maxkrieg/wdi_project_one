@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="jquery.js"></script>
+
+</head>
+<body>
+
+  <div id="container">
+    <div id="tic-tac-toe"><p>Tic Tac Toe</p></div>
+    <div id="reset-button"><p>Reset</p></div>
+    <div id="scoreboard">
+      <div id="x-score"><p>X wins:<span id="x-wincount">0</span> </p></div>
+      <div id="o-score"><p>O wins:<span id="o-wincount">0</span> </p></div>
+    </div>
+    <div id="gameboard">
+
+      <table>
+
+        <tr>
+          <td data-x="0" data-y="0" class="hover"></td> <td data-x="0" data-y="1" class="hover"></td> <td data-x="0" data-y="2" class="hover"></td>
+        </tr>
+
+        <tr>
+          <td data-x="1" data-y="0" class="hover"></td> <td data-x="1" data-y="1" class="hover"></td> <td data-x="1" data-y="2" class="hover"></td>
+        </tr>
+
+        <tr>
+          <td data-x="2" data-y="0" class="hover"></td> <td data-x="2" data-y="1" class="hover"></td> <td data-x="2" data-y="2" class="hover"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+<script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="app.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>
