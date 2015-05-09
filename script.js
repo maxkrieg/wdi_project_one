@@ -24,6 +24,8 @@ var board = [ [0,0,0],
               [0,0,0],
               [0,0,0] ];
 
+var playerXScore = 0;
+var playerOScore = 0;
 
 
 
@@ -51,12 +53,36 @@ $(document).ready(function(){
           else {
             alert("Already played, choose a different move.");
           }
-          checkWinner();
+          // var lastWon = (scoreCounter(checkWinner()))
+
+          var victor = checkWinner();
+
+          if (victor === 'playerX') {
+              scoreCounter('playerX');
+              $('#x-wincount').html('<span>' + playerXScore+ '</span>');
+              alert('Player X Wins!');
+              clearBoard();
+          } else if (victor === 'playerO') {
+              scoreCounter('playerO');
+              $('#o-wincount').html(('<span>' + playerOScore+ '</span>'));
+              alert('Player O Wins!');
+              clearBoard();
+          } else if (victor === 'tie') {
+              scoreCounter('tie');
+              clearBoard();
+          }
+
     // Closing for td click method
     });
 
-    $('#reset-button').click(function(){
-        resetGame();
+
+    // Reset button click handler
+    $('#clear-board').click(function(){
+        clearBoard();
+      });
+
+    $('#reset-score').click(function(){
+        resetScore();
       });
 
 
@@ -69,7 +95,7 @@ $(document).ready(function(){
     var checkWinner = function () {
       var playerO;
       var playerX;
-      var winner=false;
+      var winner=true;
 
           if (
               ( board[0][0] === "o" &&
@@ -104,8 +130,6 @@ $(document).ready(function(){
                 board[1][1] === "o" &&
                 board[2][0] === "o")) {
             winner = 'playerO';
-            alert('Player O Wins!');
-            resetGame();
           } else if (
               ( board[0][0] === "x" &&
                 board[0][1] === "x" &&
@@ -139,30 +163,52 @@ $(document).ready(function(){
                 board[1][1] === "x" &&
                 board[2][0] === "x")) {
             winner = 'playerX';
-            alert('Player X Wins!');
-            resetGame();
           } else if (count === 10) {
             winner = 'tie';
             alert('Tie!');
-            resetGame();
+            //resetGame();
           }
           return winner;
         };
 
 
 
-      var resetGame = function () {
-          $('td').removeClass('background-red');
-          $('td').removeClass('background-green');
-          $('td').addClass('hover');
-          count = 1;
-          winner = false;
-          board = [[0,0,0],
-                   [0,0,0],
-                    [0,0,0] ];
-      };
+       var scoreCounter = function (victor) {
+          var lastWon = false;
+            if (victor === 'playerX') {
+              lastWon = 'playerX';
+              playerXScore++;
+            } else if (victor === 'playerO') {
+              lastWon = 'playerO';
+              playerOScore++;
+            } else if (victor === 'tie') {
+              lastWon='tie';
+            }
+            return lastWon;
+          };
 
-      var
+        var clearBoard = function () {
+            $('td').removeClass('background-red');
+            $('td').removeClass('background-green');
+            $('td').addClass('hover');
+            count = 1;
+            winner = true;
+            board = [ [0,0,0],
+                      [0,0,0],
+                      [0,0,0] ];
+        };
+
+        var resetScore = function () {
+          playerXScore = 0;
+          playerOScore = 0;
+          $('#x-wincount').html('<span>' + playerXScore+ '</span>');
+          $('#o-wincount').html(('<span>' + playerOScore+ '</span>'));
+        }
+
+
+
+
+
 
 
 

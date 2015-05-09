@@ -13,16 +13,35 @@
 <body>
 
   <div id="container">
-    <div id="tic-tac-toe"><p>Tic Tac Toe</p></div>
-    <div id="reset-button"><p>Reset</p></div>
-    <div id="scoreboard">
-      <div id="x-score"><p>X wins:<span id="x-wincount">0</span> </p></div>
-      <div id="o-score"><p>O wins:<span id="o-wincount">0</span> </p></div>
+
+    <div id="tic-tac-toe">
+      <p class="par">Tic Tac Toe</p>
     </div>
+
+    <div id="reset-buttons">
+      <div class="button-wraps">
+        <p id="clear-board">Clear Board</p>
+      </div>
+      <div class="button-wraps">
+        <p id="reset-score">Reset Score</p>
+      </div>
+    </div>
+
+    <div id="scoreboard">
+      <div id="x-score">
+        <p class="par">
+          X wins: <span id="x-wincount">0</span>
+        </p>
+      </div>
+      <div id="o-score">
+        <p class="par">
+          O wins: <span id="o-wincount">0</span>
+        </p>
+      </div>
+    </div>
+
     <div id="gameboard">
-
       <table>
-
         <tr>
           <td data-x="0" data-y="0" class="hover"></td> <td data-x="0" data-y="1" class="hover"></td> <td data-x="0" data-y="2" class="hover"></td>
         </tr>
