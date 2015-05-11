@@ -41,8 +41,7 @@ POSITIONING
 
 #x-score p, #o-score p {
   height: 50%;
-  text-align: left;
-  padding-left: 38%;
+  text-align: center;
   padding-top: 3%;
 }
 
@@ -73,15 +72,16 @@ STYLES
 }
 
 #gameboard {
-  background-color: lightblue;
+  background-color: rgba(30,82,137,0.8);
   border-radius: 20px;
-  padding: 5px;
+  padding: 10px;
 }
 
 td {
   color: white;
   background-color: grey;
   border-radius: 50%;
+  padding: 10px;
 }
 
 .hover:hover {
@@ -111,13 +111,27 @@ td {
   font-size: 1.1em;
 }
 
-
-.background-red {
-  background-color: red;
+/* Stark*/
+.house-stark {
+  /*background-color: red;*/
+  background-image: url('images/stark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  border-bottom-left-radius: 60% 90%;
+  border-bottom-right-radius: 60% 90%;
 }
-
-.background-green {
-  background-color: green;
+/* Lannister */
+.house-lannister {
+  background-image: url('images/lannister.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  border-bottom-left-radius: 60% 90%;
+  border-bottom-right-radius: 60% 90%;
+  padding: 10px;
 }
 
 @media screen and (min-width: 480px) {

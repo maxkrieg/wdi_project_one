@@ -33,18 +33,19 @@ $(document).ready(function(){
 
   var count=1;
 
+    ////// Click function for gameboard ///////
     $('td').click(function(){
         var x = $(this).data("x");
         var y = $(this).data("y");
 
-          // makeMove
-          if (!$(this).hasClass('background-red') && !$(this).hasClass('background-green')) {
+          // Making moves and adding styles to pieces
+          if (!$(this).hasClass('house-stark') && !$(this).hasClass('house-lannister')) {
             if ((count % 2) === 1) {
-              $(this).addClass('background-red');
+              $(this).addClass('house-stark');
               $(this).removeClass('hover');
               board[x][y]="o";
             } else {
-              $(this).addClass('background-green');
+              $(this).addClass('house-lannister');
               $(this).removeClass('hover');
               board[x][y]="x";
             }
@@ -53,22 +54,25 @@ $(document).ready(function(){
           else {
             alert("Already played, choose a different move.");
           }
-          // var lastWon = (scoreCounter(checkWinner()))
 
+
+          // Checking for winner
           var victor = checkWinner();
 
+          //
           if (victor === 'playerX') {
               scoreCounter('playerX');
               $('#x-wincount').html('<span>' + playerXScore+ '</span>');
-              alert('Player X Wins!');
+              alert('House Lannister Wins!');
               clearBoard();
           } else if (victor === 'playerO') {
               scoreCounter('playerO');
               $('#o-wincount').html(('<span>' + playerOScore+ '</span>'));
-              alert('Player O Wins!');
+              alert('House Stark Wins!');
               clearBoard();
           } else if (victor === 'tie') {
               scoreCounter('tie');
+              alert('Tie!');
               clearBoard();
           }
 
@@ -76,11 +80,12 @@ $(document).ready(function(){
     });
 
 
-    // Reset button click handler
+    ////// Clear board click function ////////
     $('#clear-board').click(function(){
         clearBoard();
       });
 
+    ////// Reset Score click function ////////
     $('#reset-score').click(function(){
         resetScore();
       });
@@ -91,7 +96,7 @@ $(document).ready(function(){
 
 
 
-
+    /// Check Winner funcion ////
     var checkWinner = function () {
       var playerO;
       var playerX;
@@ -165,14 +170,12 @@ $(document).ready(function(){
             winner = 'playerX';
           } else if (count === 10) {
             winner = 'tie';
-            alert('Tie!');
-            //resetGame();
           }
           return winner;
         };
 
 
-
+      ////// Score Counting function ///////
        var scoreCounter = function (victor) {
           var lastWon = false;
             if (victor === 'playerX') {
@@ -187,9 +190,10 @@ $(document).ready(function(){
             return lastWon;
           };
 
+        //// Clear board function /////
         var clearBoard = function () {
-            $('td').removeClass('background-red');
-            $('td').removeClass('background-green');
+            $('td').removeClass('house-stark');
+            $('td').removeClass('house-lannister');
             $('td').addClass('hover');
             count = 1;
             winner = true;
@@ -198,6 +202,7 @@ $(document).ready(function(){
                       [0,0,0] ];
         };
 
+        ////// Reset Score function ///////
         var resetScore = function () {
           playerXScore = 0;
           playerOScore = 0;
