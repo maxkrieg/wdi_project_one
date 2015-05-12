@@ -30,8 +30,9 @@ POSITIONING
   padding-top: 8%;
 }
 
-.par {
-  padding-top: 5%;
+#tic-tac-toe p {
+  padding-top: 3%;
+  font-weight: bold;
 }
 
 #scoreboard {
@@ -42,7 +43,7 @@ POSITIONING
 #x-score p, #o-score p {
   height: 50%;
   text-align: center;
-  padding-top: 3%;
+  padding-top: 4%;
 }
 
 #gameboard {
@@ -66,9 +67,20 @@ tr {
 /************
 STYLES
 *************/
+
+body {
+  background-image: url('images/got-background.jpg');
+  background-size: 100% 150%;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: 'Cinzel', serif;
+}
+
+
 #tic-tac-toe {
   border-radius: 10px;
   background-color: rgba(22, 160, 133,1.0);
+  font-size: 2em;
 }
 
 #gameboard {
@@ -86,8 +98,11 @@ td {
 
 .hover:hover {
   background-color:lightgrey;
-  border-radius: 50%;
   cursor: pointer;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  border-bottom-left-radius: 60% 90%;
+  border-bottom-right-radius: 60% 90%;
 }
 
 #scoreboard {
@@ -113,7 +128,6 @@ td {
 
 /* Stark*/
 .house-stark {
-  /*background-color: red;*/
   background-image: url('images/stark.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -134,6 +148,8 @@ td {
   padding: 10px;
 }
 
+.clicked {}
+
 @media screen and (min-width: 480px) {
   #container {
     width: 315px;
@@ -142,6 +158,12 @@ td {
   }
 }
 
-
-
+@media screen and (min-width: 750px) {
+  #container {
+    width: 335px;
+    height: 480px;
+    margin: 20px auto 0;
+  }
 }
+
+
