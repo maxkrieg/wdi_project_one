@@ -1,19 +1,28 @@
 
-/************
+/************************
 POSITIONING
-************/
+*************************/
 
-/*Containing div for entire game*/
+/** Containing div for entire game **/
+
 #container {
   width: 250px;
   height: 350px;
   margin: 20px auto 0;
 }
 
+/** Tic Tac Thrones Header Positioning **/
+
 #tic-tac-toe {
   text-align: center;
   height: 10%;
 }
+
+#tic-tac-toe p {
+  padding-top: 4%;
+}
+
+/** Clear board and reset button positioning **/
 
 #reset-buttons {
   height: 10%;
@@ -30,21 +39,20 @@ POSITIONING
   padding-top: 8%;
 }
 
-#tic-tac-toe p {
-  padding-top: 3%;
-  font-weight: bold;
-}
+/** Scoreboard positioning **/
 
 #scoreboard {
   text-align: center;
   height: 15%;
 }
 
-#x-score p, #o-score p {
+#lannister-score p, #stark-score p {
   height: 50%;
   text-align: center;
   padding-top: 4%;
 }
+
+/** Board table positioning **/
 
 #gameboard {
   text-align: center;
@@ -63,39 +71,75 @@ tr {
 
 
 
-
-/************
+/**************************
 STYLES
-*************/
+***************************/
 
+/** Body styling for backgroung image and font **/
 body {
   background-image: url('images/got-background.jpg');
-  background-size: 100% 150%;
+  background-size: 100% 250%;
   background-repeat: no-repeat;
   height: 100%;
   font-family: 'Cinzel', serif;
 }
 
-
+/** Tic Tac Thrones Header Stlying **/
 #tic-tac-toe {
   border-radius: 10px;
-  background-color: rgba(22, 160, 133,1.0);
-  font-size: 2em;
+  background-image: url('images/header-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  color: floralwhite;
 }
 
+/** Reset and Clear board button styles **/
+.button-wraps {
+  background-image: url('images/buttons-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 14px;
+  color: floralwhite;
+}
+
+.button-wraps:hover {
+  cursor: pointer;
+  text-shadow: 0.1em 0.1em 0.2em floralwhite;
+}
+
+.button-wraps p:active {
+  font-size: 16px;
+}
+
+/** Scoreboard stlying **/
+#scoreboard {
+  border-radius: 10px;
+  background-image: url('images/header-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 12px;
+}
+
+/** Board table styling: static; **/
 #gameboard {
-  background-color: rgba(30,82,137,0.8);
+  background-image: url('images/board-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 20px;
   padding: 10px;
+  border: 3px solid black;
 }
 
 td {
-  color: white;
-  background-color: grey;
+  background-color: rgba(178, 192, 193, 0.9);
   border-radius: 50%;
   padding: 10px;
 }
 
+/** Board table styling: hover **/
 .hover:hover {
   background-color:lightgrey;
   cursor: pointer;
@@ -105,28 +149,8 @@ td {
   border-bottom-right-radius: 60% 90%;
 }
 
-#scoreboard {
-  border-radius: 10px;
-  background-color: #2c3e50;
-  color: white;
-}
 
-.button-wraps {
-  background-color: rgba(230, 126, 34,1.0);
-  text-align: center;
-}
-
-.button-wraps:hover {
-  background-color: rgba(230, 126, 34,0.5);
-  cursor: pointer;
-}
-
-.button-wraps:active {
-  background-color: rgba(230, 126, 34,0.8);
-  font-size: 1.1em;
-}
-
-/* Stark*/
+/** Stark piece styles: clicked **/
 .house-stark {
   background-image: url('images/stark.jpg');
   background-size: cover;
@@ -136,7 +160,8 @@ td {
   border-bottom-left-radius: 60% 90%;
   border-bottom-right-radius: 60% 90%;
 }
-/* Lannister */
+
+/** Lannister piece styles: clicked **/
 .house-lannister {
   background-image: url('images/lannister.jpg');
   background-size: cover;
@@ -148,22 +173,69 @@ td {
   padding: 10px;
 }
 
+
 .clicked {}
 
+
+/************************************
+Media Queries
+************************************/
+
+/** First breakpoint: medium width viewport **/
 @media screen and (min-width: 480px) {
   #container {
     width: 315px;
     height: 440px;
     margin: 20px auto 0;
   }
+
+  #tic-tac-toe {
+    font-size: 1.5em;
+  }
+
+  .button-wraps p {
+    padding-top: 9%;
+    font-size: 15px;
+  }
+
+  .button-wraps p:active {
+  font-size: 17px;
 }
 
+  #scoreboard {
+    font-size: 14px;
+  }
+
+}
+
+/** Second breakpoint: large width viewport **/
 @media screen and (min-width: 750px) {
   #container {
     width: 335px;
     height: 480px;
     margin: 20px auto 0;
   }
+
+  #tic-tac-toe p {
+    font-size: 1.2em;
+    padding-top: 3.5%;
+  }
+
+  .button-wraps p {
+    padding-top: 9%;
+    font-size: 18px;
+  }
+
+  .button-wraps p:active {
+  font-size: 20px;
+}
+
+  #scoreboard p {
+    font-size: 17px;
+    padding-top: 4%;
+  }
+
+
 }
 
 
