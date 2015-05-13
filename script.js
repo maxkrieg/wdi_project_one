@@ -6,9 +6,6 @@ var board = [ [0,0,0],
 var lannisterScore = 0;
 var starkScore = 0;
 
-var playerTurn = 'stark';
-
-
 $(document).ready(function(){
 
   var count=1;
@@ -36,7 +33,26 @@ $(document).ready(function(){
             alert("Already played, choose a different move.");
           }
 
+        checkNewGame();
 
+    // Closing for td click method
+    });
+
+    ////// Clear board click function ////////
+    $('#clear-board').click(function(){
+        clearBoard();
+      });
+
+    ////// Reset Score click function ////////
+    $('#reset-score').click(function(){
+        resetScore();
+        clearBoard();
+      });
+
+
+// Encapsulated functions //
+
+    var checkNewGame = function () {
           // Checking for winner
           var victor = checkWinner();
 
@@ -56,23 +72,7 @@ $(document).ready(function(){
               alert('Tie!');
               clearBoard();
           }
-
-    // Closing for td click method
-    });
-
-
-    ////// Clear board click function ////////
-    $('#clear-board').click(function(){
-        clearBoard();
-      });
-
-    ////// Reset Score click function ////////
-    $('#reset-score').click(function(){
-        resetScore();
-        clearBoard();
-      });
-
-
+        }
 
 
     /// Check Winner funcion ////
@@ -150,7 +150,6 @@ $(document).ready(function(){
           }
           return winner;
         };
-
 
       ////// Score Counting function ///////
        var scoreCounter = function (victor) {
