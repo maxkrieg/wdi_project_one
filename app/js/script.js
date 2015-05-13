@@ -2,13 +2,11 @@
 var board = [ [0,0,0],
               [0,0,0],
               [0,0,0] ];
-
 var lannisterScore = 0;
 var starkScore = 0;
+var count=1;
 
 $(document).ready(function(){
-
-  var count=1;
 
     ////// Click function for gameboard ///////
     $('td').click(function(){
@@ -48,6 +46,9 @@ $(document).ready(function(){
         resetScore();
         clearBoard();
       });
+
+// Closing for document ready
+});
 
 
 // Encapsulated functions //
@@ -192,16 +193,5 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-// Closing for document ready
-});
 
 
