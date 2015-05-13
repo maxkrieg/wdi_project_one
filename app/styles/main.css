@@ -6,8 +6,8 @@ POSITIONING
 /** Containing div for entire game **/
 
 #container {
-  width: 250px;
-  height: 350px;
+  width: 315px;
+  height: 440px;
   margin: 20px auto 0;
 }
 
@@ -77,7 +77,7 @@ STYLES
 
 /** Body styling for backgroung image and font **/
 body {
-  background-image: url('images/got-background.jpg');
+  background-image: url('../images/got-background.jpg');
   background-size: 100% 250%;
   background-repeat: no-repeat;
   height: 100%;
@@ -87,7 +87,7 @@ body {
 /** Tic Tac Thrones Header Stlying **/
 #tic-tac-toe {
   border-radius: 10px;
-  background-image: url('images/header-background.jpg');
+  background-image: url('../images/header-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   font-weight: bold;
@@ -96,11 +96,11 @@ body {
 
 /** Reset and Clear board button styles **/
 .button-wraps {
-  background-image: url('images/buttons-background.jpg');
+  background-image: url('../images/buttons-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
-  font-size: 14px;
+  font-size: 17px;
   color: floralwhite;
 }
 
@@ -110,22 +110,22 @@ body {
 }
 
 .button-wraps p:active {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 /** Scoreboard stlying **/
 #scoreboard {
   border-radius: 10px;
-  background-image: url('images/header-background.jpg');
+  background-image: url('../images/header-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 /** Board table styling: static; **/
 #gameboard {
-  background-image: url('images/board-background.jpg');
+  background-image: url('../images/board-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 20px;
@@ -152,7 +152,7 @@ td {
 
 /** Stark piece styles: clicked **/
 .house-stark {
-  background-image: url('images/stark.jpg');
+  background-image: url('../images/stark.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   border-top-left-radius: 5%;
@@ -163,7 +163,7 @@ td {
 
 /** Lannister piece styles: clicked **/
 .house-lannister {
-  background-image: url('images/lannister.jpg');
+  background-image: url('../images/lannister.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   border-top-left-radius: 5%;
@@ -184,26 +184,26 @@ Media Queries
 /** First breakpoint: medium width viewport **/
 @media screen and (min-width: 480px) {
   #container {
-    width: 315px;
-    height: 440px;
+    width: 400px;
+    height: 550px;
     margin: 20px auto 0;
   }
 
   #tic-tac-toe {
-    font-size: 1.5em;
+    font-size: 1.9em;
   }
 
   .button-wraps p {
     padding-top: 9%;
-    font-size: 15px;
+    font-size: 19px;
   }
 
   .button-wraps p:active {
-  font-size: 17px;
+  font-size: 21px;
 }
 
   #scoreboard {
-    font-size: 14px;
+    font-size: 18px;
   }
 
 }
@@ -211,27 +211,27 @@ Media Queries
 /** Second breakpoint: large width viewport **/
 @media screen and (min-width: 750px) {
   #container {
-    width: 335px;
-    height: 480px;
+    width: 480px;
+    height: 660px;
     margin: 20px auto 0;
   }
 
   #tic-tac-toe p {
-    font-size: 1.2em;
+    font-size: 1.5em;
     padding-top: 3.5%;
   }
 
   .button-wraps p {
     padding-top: 9%;
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .button-wraps p:active {
-  font-size: 20px;
+  font-size: 24px;
 }
 
   #scoreboard p {
-    font-size: 17px;
+    font-size: 20px;
     padding-top: 4%;
   }
 
