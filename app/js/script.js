@@ -9,11 +9,35 @@ var count=1;
 
 $(document).ready(function(){
 
-  // $('#tic-tac-toe').hide().show(750);
-  // $('#reset-buttons').hide().show(1500);
-  // $('#scoreboard').hide().show(2000);
-  // $('#gameboard').hide().show(3000);
-  // $('#chat-wrap').hide().show(2500);
+  var elementFadeIn = (function () {
+    $('#tic-tac-toe').hide().show(500);
+    $('#reset-buttons').hide().show(1000);
+    $('#scoreboard').hide().show(1500);
+    $('#gameboard').hide().show(2500);
+    $('#chat-wrap').hide().show(2000);
+  })();
+
+
+  $('td').hover(
+      function(){
+        if (!$(this).hasClass('clicked')) {
+          if ((count % 2) === 1) {
+            $(this).addClass('house-stark');
+          } else {
+            $(this).addClass('house-lannister');
+          }
+        }
+      },
+      function(){
+        if (!$(this).hasClass('clicked')) {
+          if ((count % 2) === 1) {
+            $(this).removeClass('house-stark');
+          } else {
+            $(this).removeClass('house-lannister');
+          }
+        }
+      }
+  );
 
     ////// Click function for gameboard ///////
     $('td').click(function(){
@@ -39,27 +63,24 @@ $(document).ready(function(){
           }
 
         checkNewGame();
-
-    // Closing for td click method
+        // Closing for td click method
     });
 
     ////// Clear board click function ////////
     $('#clear-board').click(function(){
-        clearBoard();
-      });
+      clearBoard();
+    });
 
     ////// Reset Score click function ////////
     $('#reset-score').click(function(){
         resetScore();
         clearBoard();
       });
-
 // Closing for document ready
 });
 
 
 // Encapsulated functions //
-
 var checkNewGame = function () {
       // Checking for winner
       var victor = checkWinner();
@@ -80,146 +101,144 @@ var checkNewGame = function () {
           alert('Tie!');
           clearBoard();
       }
-    }
+    };
 
 
 /// Check Winner funcion ////
 var checkWinner = function () {
   var winner=true;
+  if (
+    // Stark Vertical Win
+    ( board[0][0] === "stark" &&
+      board[0][1] === "stark" &&
+      board[0][2] === "stark") ||
 
-      if (
-            // Stark Vertical Win
-          ( board[0][0] === "stark" &&
-            board[0][1] === "stark" &&
-            board[0][2] === "stark") ||
+    ( board[1][0] === "stark" &&
+      board[1][1] === "stark" &&
+      board[1][2] === "stark") ||
 
-          ( board[1][0] === "stark" &&
-            board[1][1] === "stark" &&
-            board[1][2] === "stark") ||
+    ( board[2][0] === "stark" &&
+      board[2][1] === "stark" &&
+      board[2][2] === "stark") ||
+      // Stark Horizontal win
+    ( board[0][0] === "stark" &&
+      board[1][0] === "stark" &&
+      board[2][0] === "stark") ||
 
-          ( board[2][0] === "stark" &&
-            board[2][1] === "stark" &&
-            board[2][2] === "stark") ||
-            // Stark Horizontal win
-          ( board[0][0] === "stark" &&
-            board[1][0] === "stark" &&
-            board[2][0] === "stark") ||
+    ( board[0][1] === "stark" &&
+      board[1][1] === "stark" &&
+      board[2][1] === "stark") ||
 
-          ( board[0][1] === "stark" &&
-            board[1][1] === "stark" &&
-            board[2][1] === "stark") ||
+    ( board[0][2] === "stark" &&
+      board[1][2] === "stark" &&
+      board[2][2] === "stark") ||
+      // Stark Diagonal win
+    ( board[0][0] === "stark" &&
+      board[1][1] === "stark" &&
+      board[2][2] === "stark") ||
 
-          ( board[0][2] === "stark" &&
-            board[1][2] === "stark" &&
-            board[2][2] === "stark") ||
-            // Stark Diagonal win
-          ( board[0][0] === "stark" &&
-            board[1][1] === "stark" &&
-            board[2][2] === "stark") ||
-
-          ( board[0][2] === "stark" &&
-            board[1][1] === "stark" &&
-            board[2][0] === "stark")) {
+    ( board[0][2] === "stark" &&
+      board[1][1] === "stark" &&
+      board[2][0] === "stark")) {
         winner = 'houseStark';
-      } else if (
-            // Lannister Vertical Win
-          ( board[0][0] === "lannister" &&
-            board[0][1] === "lannister" &&
-            board[0][2] === "lannister") ||
+  } else if (
+    // Lannister Vertical Win
+    ( board[0][0] === "lannister" &&
+      board[0][1] === "lannister" &&
+      board[0][2] === "lannister") ||
 
-          ( board[1][0] === "lannister" &&
-            board[1][1] === "lannister" &&
-            board[1][2] === "lannister") ||
+    ( board[1][0] === "lannister" &&
+      board[1][1] === "lannister" &&
+      board[1][2] === "lannister") ||
 
-          ( board[2][0] === "lannister" &&
-            board[2][1] === "lannister" &&
-            board[2][2] === "lannister") ||
-            // Lannister Horizontal win
-          ( board[0][0] === "lannister" &&
-            board[1][0] === "lannister" &&
-            board[2][0] === "lannister") ||
+    ( board[2][0] === "lannister" &&
+      board[2][1] === "lannister" &&
+      board[2][2] === "lannister") ||
+      // Lannister Horizontal win
+    ( board[0][0] === "lannister" &&
+      board[1][0] === "lannister" &&
+      board[2][0] === "lannister") ||
 
-          ( board[0][1] === "lannister" &&
-            board[1][1] === "lannister" &&
-            board[2][1] === "lannister") ||
+    ( board[0][1] === "lannister" &&
+      board[1][1] === "lannister" &&
+      board[2][1] === "lannister") ||
 
-          ( board[0][2] === "lannister" &&
-            board[1][2] === "lannister" &&
-            board[2][2] === "lannister") ||
-            // Lannister Diagonal win
-          ( board[0][0] === "lannister" &&
-            board[1][1] === "lannister" &&
-            board[2][2] === "lannister") ||
+    ( board[0][2] === "lannister" &&
+      board[1][2] === "lannister" &&
+      board[2][2] === "lannister") ||
+      // Lannister Diagonal win
+    ( board[0][0] === "lannister" &&
+      board[1][1] === "lannister" &&
+      board[2][2] === "lannister") ||
 
-          ( board[0][2] === "lannister" &&
-            board[1][1] === "lannister" &&
-            board[2][0] === "lannister")) {
-        winner = 'houseLannister';
-      } else if (count === 10) {
-        winner = 'tie';
-      }
-      return winner;
-    };
+    ( board[0][2] === "lannister" &&
+      board[1][1] === "lannister" &&
+      board[2][0] === "lannister")) {
+    winner = 'houseLannister';
+  } else if (count === 10) {
+    winner = 'tie';
+  }
+  return winner;
+};
 
-  ////// Score Counting function ///////
-   var scoreCounter = function (victor) {
-      var lastWon = false;
-        if (victor === 'houseLannister') {
-          lastWon = 'houseLannister';
-          lannisterScore++;
-        } else if (victor === 'houseStark') {
-          lastWon = 'houseStark';
-          starkScore++;
-        } else if (victor === 'tie') {
-          lastWon='tie';
-        }
-        return lastWon;
-      };
+////// Score Counting function ///////
+var scoreCounter = function (victor) {
+  var lastWon = false;
+  if (victor === 'houseLannister') {
+    lastWon = 'houseLannister';
+    lannisterScore++;
+  } else if (victor === 'houseStark') {
+    lastWon = 'houseStark';
+    starkScore++;
+  } else if (victor === 'tie') {
+    lastWon='tie';
+  }
+  return lastWon;
+};
 
-    //// Clear board function /////
-    var clearBoard = function () {
-        $('td').removeClass('house-stark');
-        $('td').removeClass('house-lannister');
-        $('td').removeClass('clicked');
-        $('td').addClass('hover');
-        count = 1;
-        winner = true;
-        board = [ [0,0,0],
-                  [0,0,0],
-                  [0,0,0] ];
-    };
+//// Clear board function /////
+var clearBoard = function () {
+    $('td').removeClass('house-stark');
+    $('td').removeClass('house-lannister');
+    $('td').removeClass('clicked');
+    $('td').addClass('hover');
+    count = 1;
+    board = [ [0,0,0],
+              [0,0,0],
+              [0,0,0] ];
+};
 
-    ////// Reset Score function ///////
-    var resetScore = function () {
-      lannisterScore = 0;
-      starkScore = 0;
-      $('#lannister-wincount').html('<span>' + lannisterScore+ '</span>');
-      $('#stark-wincount').html(('<span>' + starkScore+ '</span>'));
+////// Reset Score function ///////
+var resetScore = function () {
+  lannisterScore = 0;
+  starkScore = 0;
+  $('#lannister-wincount').html('<span>' + lannisterScore+ '</span>');
+  $('#stark-wincount').html(('<span>' + starkScore+ '</span>'));
+};
+
+
+////// Chat window script //////
+var myDataRef;
+
+$(function(){
+  myDataRef = new Firebase('https://tictacthrone.firebaseio.com/chat/');
+  $('#messageInput').keypress(function (e) {
+    if (e.keyCode == 13) {
+      var name = $('#nameInput').val();
+      var text = $('#messageInput').val();
+      myDataRef.push({name: name, text: text});
+      $('#messageInput').val('');
     }
-
-
-    ////// Chat window script //////
-    var myDataRef;
-
-    $(function(){
-      myDataRef = new Firebase('https://tictacthrone.firebaseio.com/chat/');
-      $('#messageInput').keypress(function (e) {
-        if (e.keyCode == 13) {
-          var name = $('#nameInput').val();
-          var text = $('#messageInput').val();
-          myDataRef.push({name: name, text: text});
-          $('#messageInput').val('');
-        }
-      });
-      var displayChatMessage = function(name, text) {
-        $('<div>').text(text).prepend($('<em>').text(name+':         ')).prependTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      };
-      myDataRef.on('child_added', function(snapshot) {
-        var message = snapshot.val();
-        displayChatMessage(message.name, message.text);
-      });
-    });
+  });
+  var displayChatMessage = function(name, text) {
+    $('<div>').text(text).prepend($('<em>').text(name+':         ')).prependTo($('#messagesDiv'));
+    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+  };
+  myDataRef.on('child_added', function(snapshot) {
+    var message = snapshot.val();
+    displayChatMessage(message.name, message.text);
+  });
+});
 
 
 

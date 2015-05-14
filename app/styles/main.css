@@ -93,7 +93,7 @@ STYLES
 /** Body styling for backgroung image and font **/
 body {
   background-image: url('../images/got-background.jpg');
-  background-size: 100% 250%;
+  background-size: fill;
   background-repeat: no-repeat;
   height: 100%;
   font-family: 'Cinzel', serif;
@@ -155,6 +155,7 @@ td {
   background-color: rgba(178, 192, 193, 0.9);
   border-radius: 50%;
   padding: 10px;
+  transition: all 0.2s ease-in-out;
 }
 
 #chat-wrap {
@@ -182,6 +183,7 @@ input {
 }
 
 /** Board table styling: hover **/
+
 .hover:hover {
   background-color:lightgrey;
   cursor: pointer;
@@ -194,6 +196,16 @@ input {
 
 /** Stark piece styles: clicked **/
 .house-stark {
+  background-image: url('../images/stark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  border-bottom-left-radius: 60% 90%;
+  border-bottom-right-radius: 60% 90%;
+}
+
+.house-stark:hover {
   background-image: url('../images/stark.jpg');
   background-size: cover;
   background-repeat: no-repeat;
