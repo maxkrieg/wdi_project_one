@@ -10,56 +10,71 @@
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/main.css">
-  <script src="../lib/jquery.js"></script>
-  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
 </head>
 <body>
 
-  <div id="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-1 col-md-offset-1 col-md-6" id="game-container">
+        <div id="tic-tac-toe">
+          <p class="par">TIC TAC THRONE</p>
+        </div>
 
-    <div id="tic-tac-toe">
-      <p class="par">TIC TAC THRONE</p>
+        <div id="reset-buttons">
+          <div class="button-wraps">
+            <p id="clear-board">Clear Board</p>
+          </div>
+          <div class="button-wraps">
+            <p id="reset-score">Reset Score</p>
+          </div>
+        </div>
+
+        <div id="scoreboard">
+          <div id="lannister-score">
+            <p class="par">
+              House Lannister: <span id="lannister-wincount">0</span>
+            </p>
+          </div>
+          <div id="stark-score">
+            <p class="par">
+              House Stark: <span id="stark-wincount">0</span>
+            </p>
+          </div>
+        </div>
+
+        <div id="gameboard">
+          <table>
+            <tr>
+              <td data-x="0" data-y="0" class="hover"></td> <td data-x="0" data-y="1" class="hover"></td> <td data-x="0" data-y="2" class="hover"></td>
+            </tr>
+
+            <tr>
+              <td data-x="1" data-y="0" class="hover"></td> <td data-x="1" data-y="1" class="hover"></td> <td data-x="1" data-y="2" class="hover"></td>
+            </tr>
+
+            <tr>
+              <td data-x="2" data-y="0" class="hover"></td> <td data-x="2" data-y="1" class="hover"></td> <td data-x="2" data-y="2" class="hover"></td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
+      <div class="col-xs-8 col-xs-offset-1 col-sm-8 col-md-offset-0 col-md-5" id = "chat-wrap">
+          <p>The Small Council</p>
+          <input type='text' id='nameInput' placeholder='Name'>
+          <input type='text' id='messageInput' placeholder='Message'>
+          <div id='messagesDiv'><em></em></div>
+      </div>
+
     </div>
 
-    <div id="reset-buttons">
-      <div class="button-wraps">
-        <p id="clear-board">Clear Board</p>
-      </div>
-      <div class="button-wraps">
-        <p id="reset-score">Reset Score</p>
-      </div>
-    </div>
-
-    <div id="scoreboard">
-      <div id="lannister-score">
-        <p class="par">
-          House Lannister: <span id="lannister-wincount">0</span>
-        </p>
-      </div>
-      <div id="stark-score">
-        <p class="par">
-          House Stark: <span id="stark-wincount">0</span>
-        </p>
-      </div>
-    </div>
-
-    <div id="gameboard">
-      <table>
-        <tr>
-          <td data-x="0" data-y="0" class="hover"></td> <td data-x="0" data-y="1" class="hover"></td> <td data-x="0" data-y="2" class="hover"></td>
-        </tr>
-
-        <tr>
-          <td data-x="1" data-y="0" class="hover"></td> <td data-x="1" data-y="1" class="hover"></td> <td data-x="1" data-y="2" class="hover"></td>
-        </tr>
-
-        <tr>
-          <td data-x="2" data-y="0" class="hover"></td> <td data-x="2" data-y="1" class="hover"></td> <td data-x="2" data-y="2" class="hover"></td>
-        </tr>
-      </table>
-    </div>
   </div>
 
+<script src="../lib/jquery.js"></script>
 <script src="js/script.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
 </body>
 </html>

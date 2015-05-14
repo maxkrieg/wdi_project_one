@@ -2,13 +2,16 @@
 /************************
 POSITIONING
 *************************/
+body {
+  padding-top: 20px;
+}
 
 /** Containing div for entire game **/
 
-#container {
-  width: 315px;
-  height: 440px;
-  margin: 20px auto 0;
+#game-container {
+  height: 420px;
+  min-width: 300px;
+  margin-bottom: 10px;
 }
 
 /** Tic Tac Thrones Header Positioning **/
@@ -69,6 +72,19 @@ tr {
   width: 100%;
 }
 
+/** Chat positioning **/
+
+input {
+  float: left;
+}
+
+#nameInput {
+  width: 33%;
+}
+
+#messageInput {
+  width: 66%;
+}
 
 
 /**************************
@@ -139,6 +155,29 @@ td {
   padding: 10px;
 }
 
+#chat-wrap {
+  background-image: url('../images/header-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#chat-wrap p {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: black;
+  border-radius: 5px;
+}
+
 /** Board table styling: hover **/
 .hover:hover {
   background-color:lightgrey;
@@ -182,11 +221,9 @@ Media Queries
 ************************************/
 
 /** First breakpoint: medium width viewport **/
-@media screen and (min-width: 480px) {
-  #container {
-    width: 400px;
-    height: 550px;
-    margin: 20px auto 0;
+@media screen and (min-width: 450px) {
+  #game-container {
+    height: 450px;
   }
 
   #tic-tac-toe {
@@ -209,11 +246,9 @@ Media Queries
 }
 
 /** Second breakpoint: large width viewport **/
-@media screen and (min-width: 750px) {
-  #container {
-    width: 480px;
-    height: 660px;
-    margin: 20px auto 0;
+@media screen and (min-width: 700px) {
+  #game-container {
+    height: 700px;
   }
 
   #tic-tac-toe p {

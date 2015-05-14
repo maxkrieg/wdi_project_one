@@ -1,3 +1,4 @@
+'use strict';
 
 var board = [ [0,0,0],
               [0,0,0],
@@ -7,6 +8,12 @@ var starkScore = 0;
 var count=1;
 
 $(document).ready(function(){
+
+  $('#tic-tac-toe').hide().show(750);
+  $('#reset-buttons').hide().show(1500);
+  $('#scoreboard').hide().show(2000);
+  $('#gameboard').hide().show(3000);
+  $('#chat-wrap').hide().show(2500);
 
     ////// Click function for gameboard ///////
     $('td').click(function(){
@@ -53,143 +60,164 @@ $(document).ready(function(){
 
 // Encapsulated functions //
 
-    var checkNewGame = function () {
-          // Checking for winner
-          var victor = checkWinner();
+var checkNewGame = function () {
+      // Checking for winner
+      var victor = checkWinner();
 
-          // Increment score
-          if (victor === 'houseLannister') {
-              scoreCounter('houseLannister');
-              alert('House Lannister Wins!');
-              $('#lannister-wincount').html('<span>' + lannisterScore + '</span>');
-              clearBoard();
-          } else if (victor === 'houseStark') {
-              scoreCounter('houseStark');
-              alert('House Stark Wins!');
-              $('#stark-wincount').html(('<span>' + starkScore+ '</span>'));
-              clearBoard();
-          } else if (victor === 'tie') {
-              scoreCounter('tie');
-              alert('Tie!');
-              clearBoard();
-          }
-        }
-
-
-    /// Check Winner funcion ////
-    var checkWinner = function () {
-      var winner=true;
-
-          if (
-              ( board[0][0] === "stark" &&
-                board[0][1] === "stark" &&
-                board[0][2] === "stark") ||
-
-              ( board[1][0] === "stark" &&
-                board[1][1] === "stark" &&
-                board[1][2] === "stark") ||
-
-              ( board[2][0] === "stark" &&
-                board[2][1] === "stark" &&
-                board[2][2] === "stark") ||
-                // Horizontal win
-              ( board[0][0] === "stark" &&
-                board[1][0] === "stark" &&
-                board[2][0] === "stark") ||
-
-              ( board[0][1] === "stark" &&
-                board[1][1] === "stark" &&
-                board[2][1] === "stark") ||
-
-              ( board[0][2] === "stark" &&
-                board[1][2] === "stark" &&
-                board[2][2] === "stark") ||
-                //Diagonal win
-              ( board[0][0] === "stark" &&
-                board[1][1] === "stark" &&
-                board[2][2] === "stark") ||
-
-              ( board[0][2] === "stark" &&
-                board[1][1] === "stark" &&
-                board[2][0] === "stark")) {
-            winner = 'houseStark';
-          } else if (
-              ( board[0][0] === "lannister" &&
-                board[0][1] === "lannister" &&
-                board[0][2] === "lannister") ||
-
-              ( board[1][0] === "lannister" &&
-                board[1][1] === "lannister" &&
-                board[1][2] === "lannister") ||
-
-              ( board[2][0] === "lannister" &&
-                board[2][1] === "lannister" &&
-                board[2][2] === "lannister") ||
-                // Horizontal win
-              ( board[0][0] === "lannister" &&
-                board[1][0] === "lannister" &&
-                board[2][0] === "lannister") ||
-
-              ( board[0][1] === "lannister" &&
-                board[1][1] === "lannister" &&
-                board[2][1] === "lannister") ||
-
-              ( board[0][2] === "lannister" &&
-                board[1][2] === "lannister" &&
-                board[2][2] === "lannister") ||
-                //Diagonal win
-              ( board[0][0] === "lannister" &&
-                board[1][1] === "lannister" &&
-                board[2][2] === "lannister") ||
-
-              ( board[0][2] === "lannister" &&
-                board[1][1] === "lannister" &&
-                board[2][0] === "lannister")) {
-            winner = 'houseLannister';
-          } else if (count === 10) {
-            winner = 'tie';
-          }
-          return winner;
-        };
-
-      ////// Score Counting function ///////
-       var scoreCounter = function (victor) {
-          var lastWon = false;
-            if (victor === 'houseLannister') {
-              lastWon = 'houseLannister';
-              lannisterScore++;
-            } else if (victor === 'houseStark') {
-              lastWon = 'houseStark';
-              starkScore++;
-            } else if (victor === 'tie') {
-              lastWon='tie';
-            }
-            return lastWon;
-          };
-
-        //// Clear board function /////
-        var clearBoard = function () {
-            $('td').removeClass('house-stark');
-            $('td').removeClass('house-lannister');
-            $('td').removeClass('clicked');
-            $('td').addClass('hover');
-            count = 1;
-            winner = true;
-            board = [ [0,0,0],
-                      [0,0,0],
-                      [0,0,0] ];
-        };
-
-        ////// Reset Score function ///////
-        var resetScore = function () {
-          lannisterScore = 0;
-          starkScore = 0;
-          $('#lannister-wincount').html('<span>' + lannisterScore+ '</span>');
+      // Increment score
+      if (victor === 'houseLannister') {
+          scoreCounter('houseLannister');
+          alert('House Lannister Wins!');
+          $('#lannister-wincount').html('<span>' + lannisterScore + '</span>');
+          clearBoard();
+      } else if (victor === 'houseStark') {
+          scoreCounter('houseStark');
+          alert('House Stark Wins!');
           $('#stark-wincount').html(('<span>' + starkScore+ '</span>'));
+          clearBoard();
+      } else if (victor === 'tie') {
+          scoreCounter('tie');
+          alert('Tie!');
+          clearBoard();
+      }
+    }
+
+
+/// Check Winner funcion ////
+var checkWinner = function () {
+  var winner=true;
+
+      if (
+          ( board[0][0] === "stark" &&
+            board[0][1] === "stark" &&
+            board[0][2] === "stark") ||
+
+          ( board[1][0] === "stark" &&
+            board[1][1] === "stark" &&
+            board[1][2] === "stark") ||
+
+          ( board[2][0] === "stark" &&
+            board[2][1] === "stark" &&
+            board[2][2] === "stark") ||
+            // Horizontal win
+          ( board[0][0] === "stark" &&
+            board[1][0] === "stark" &&
+            board[2][0] === "stark") ||
+
+          ( board[0][1] === "stark" &&
+            board[1][1] === "stark" &&
+            board[2][1] === "stark") ||
+
+          ( board[0][2] === "stark" &&
+            board[1][2] === "stark" &&
+            board[2][2] === "stark") ||
+            //Diagonal win
+          ( board[0][0] === "stark" &&
+            board[1][1] === "stark" &&
+            board[2][2] === "stark") ||
+
+          ( board[0][2] === "stark" &&
+            board[1][1] === "stark" &&
+            board[2][0] === "stark")) {
+        winner = 'houseStark';
+      } else if (
+          ( board[0][0] === "lannister" &&
+            board[0][1] === "lannister" &&
+            board[0][2] === "lannister") ||
+
+          ( board[1][0] === "lannister" &&
+            board[1][1] === "lannister" &&
+            board[1][2] === "lannister") ||
+
+          ( board[2][0] === "lannister" &&
+            board[2][1] === "lannister" &&
+            board[2][2] === "lannister") ||
+            // Horizontal win
+          ( board[0][0] === "lannister" &&
+            board[1][0] === "lannister" &&
+            board[2][0] === "lannister") ||
+
+          ( board[0][1] === "lannister" &&
+            board[1][1] === "lannister" &&
+            board[2][1] === "lannister") ||
+
+          ( board[0][2] === "lannister" &&
+            board[1][2] === "lannister" &&
+            board[2][2] === "lannister") ||
+            //Diagonal win
+          ( board[0][0] === "lannister" &&
+            board[1][1] === "lannister" &&
+            board[2][2] === "lannister") ||
+
+          ( board[0][2] === "lannister" &&
+            board[1][1] === "lannister" &&
+            board[2][0] === "lannister")) {
+        winner = 'houseLannister';
+      } else if (count === 10) {
+        winner = 'tie';
+      }
+      return winner;
+    };
+
+  ////// Score Counting function ///////
+   var scoreCounter = function (victor) {
+      var lastWon = false;
+        if (victor === 'houseLannister') {
+          lastWon = 'houseLannister';
+          lannisterScore++;
+        } else if (victor === 'houseStark') {
+          lastWon = 'houseStark';
+          starkScore++;
+        } else if (victor === 'tie') {
+          lastWon='tie';
         }
+        return lastWon;
+      };
+
+    //// Clear board function /////
+    var clearBoard = function () {
+        $('td').removeClass('house-stark');
+        $('td').removeClass('house-lannister');
+        $('td').removeClass('clicked');
+        $('td').addClass('hover');
+        count = 1;
+        winner = true;
+        board = [ [0,0,0],
+                  [0,0,0],
+                  [0,0,0] ];
+    };
+
+    ////// Reset Score function ///////
+    var resetScore = function () {
+      lannisterScore = 0;
+      starkScore = 0;
+      $('#lannister-wincount').html('<span>' + lannisterScore+ '</span>');
+      $('#stark-wincount').html(('<span>' + starkScore+ '</span>'));
+    }
 
 
 
+var myDataRef;
+
+$(function(){
+  myDataRef = new Firebase('https://tictacthrone.firebaseio.com/chat/');
+  $('#messageInput').keypress(function (e) {
+    if (e.keyCode == 13) {
+      var name = $('#nameInput').val();
+      var text = $('#messageInput').val();
+      myDataRef.push({name: name, text: text});
+      $('#messageInput').val('');
+    }
+  });
+  var displayChatMessage = function(name, text) {
+    $('<div>').text(text).prepend($('<em>').text(name+': ')).prependTo($('#messagesDiv'));
+    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+  };
+  myDataRef.on('child_added', function(snapshot) {
+    var message = snapshot.val();
+    displayChatMessage(message.name, message.text);
+  });
+});
 
 
 
