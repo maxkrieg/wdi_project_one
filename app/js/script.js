@@ -9,11 +9,11 @@ var count=1;
 
 $(document).ready(function(){
 
-  $('#tic-tac-toe').hide().show(750);
-  $('#reset-buttons').hide().show(1500);
-  $('#scoreboard').hide().show(2000);
-  $('#gameboard').hide().show(3000);
-  $('#chat-wrap').hide().show(2500);
+  // $('#tic-tac-toe').hide().show(750);
+  // $('#reset-buttons').hide().show(1500);
+  // $('#scoreboard').hide().show(2000);
+  // $('#gameboard').hide().show(3000);
+  // $('#chat-wrap').hide().show(2500);
 
     ////// Click function for gameboard ///////
     $('td').click(function(){
@@ -88,6 +88,7 @@ var checkWinner = function () {
   var winner=true;
 
       if (
+            // Stark Vertical Win
           ( board[0][0] === "stark" &&
             board[0][1] === "stark" &&
             board[0][2] === "stark") ||
@@ -99,7 +100,7 @@ var checkWinner = function () {
           ( board[2][0] === "stark" &&
             board[2][1] === "stark" &&
             board[2][2] === "stark") ||
-            // Horizontal win
+            // Stark Horizontal win
           ( board[0][0] === "stark" &&
             board[1][0] === "stark" &&
             board[2][0] === "stark") ||
@@ -111,7 +112,7 @@ var checkWinner = function () {
           ( board[0][2] === "stark" &&
             board[1][2] === "stark" &&
             board[2][2] === "stark") ||
-            //Diagonal win
+            // Stark Diagonal win
           ( board[0][0] === "stark" &&
             board[1][1] === "stark" &&
             board[2][2] === "stark") ||
@@ -121,6 +122,7 @@ var checkWinner = function () {
             board[2][0] === "stark")) {
         winner = 'houseStark';
       } else if (
+            // Lannister Vertical Win
           ( board[0][0] === "lannister" &&
             board[0][1] === "lannister" &&
             board[0][2] === "lannister") ||
@@ -132,7 +134,7 @@ var checkWinner = function () {
           ( board[2][0] === "lannister" &&
             board[2][1] === "lannister" &&
             board[2][2] === "lannister") ||
-            // Horizontal win
+            // Lannister Horizontal win
           ( board[0][0] === "lannister" &&
             board[1][0] === "lannister" &&
             board[2][0] === "lannister") ||
@@ -144,7 +146,7 @@ var checkWinner = function () {
           ( board[0][2] === "lannister" &&
             board[1][2] === "lannister" &&
             board[2][2] === "lannister") ||
-            //Diagonal win
+            // Lannister Diagonal win
           ( board[0][0] === "lannister" &&
             board[1][1] === "lannister" &&
             board[2][2] === "lannister") ||
@@ -196,28 +198,28 @@ var checkWinner = function () {
     }
 
 
+    ////// Chat window script //////
+    var myDataRef;
 
-var myDataRef;
-
-$(function(){
-  myDataRef = new Firebase('https://tictacthrone.firebaseio.com/chat/');
-  $('#messageInput').keypress(function (e) {
-    if (e.keyCode == 13) {
-      var name = $('#nameInput').val();
-      var text = $('#messageInput').val();
-      myDataRef.push({name: name, text: text});
-      $('#messageInput').val('');
-    }
-  });
-  var displayChatMessage = function(name, text) {
-    $('<div>').text(text).prepend($('<em>').text(name+': ')).prependTo($('#messagesDiv'));
-    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-  };
-  myDataRef.on('child_added', function(snapshot) {
-    var message = snapshot.val();
-    displayChatMessage(message.name, message.text);
-  });
-});
+    $(function(){
+      myDataRef = new Firebase('https://tictacthrone.firebaseio.com/chat/');
+      $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var name = $('#nameInput').val();
+          var text = $('#messageInput').val();
+          myDataRef.push({name: name, text: text});
+          $('#messageInput').val('');
+        }
+      });
+      var displayChatMessage = function(name, text) {
+        $('<div>').text(text).prepend($('<em>').text(name+':         ')).prependTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+      });
+    });
 
 
 

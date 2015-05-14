@@ -39,7 +39,8 @@ body {
 }
 
 .button-wraps p {
-  padding-top: 8%;
+  padding-top: 3%;
+  line-height: 2em;
 }
 
 /** Scoreboard positioning **/
@@ -73,17 +74,15 @@ tr {
 }
 
 /** Chat positioning **/
-
-input {
-  float: left;
-}
-
 #nameInput {
-  width: 33%;
+  width: 32%;
+
 }
 
 #messageInput {
-  width: 66%;
+  width: 65%;
+  float: right;
+  margin-left: 2%;
 }
 
 
@@ -108,6 +107,7 @@ body {
   background-repeat: no-repeat;
   font-weight: bold;
   color: floralwhite;
+  border: 1px solid #faebd7;
 }
 
 /** Reset and Clear board button styles **/
@@ -118,11 +118,12 @@ body {
   text-align: center;
   font-size: 17px;
   color: floralwhite;
+  border: 1px solid #faebd7;
 }
 
 .button-wraps:hover {
   cursor: pointer;
-  text-shadow: 0.1em 0.1em 0.2em floralwhite;
+  text-shadow: 0.1em 0.1em 0.2em #faebd7;
 }
 
 .button-wraps p:active {
@@ -137,6 +138,7 @@ body {
   background-repeat: no-repeat;
   color: white;
   font-size: 15px;
+  border: 1px solid #faebd7;
 }
 
 /** Board table styling: static; **/
@@ -146,7 +148,7 @@ body {
   background-repeat: no-repeat;
   border-radius: 20px;
   padding: 10px;
-  border: 3px solid black;
+  border: 1px solid #faebd7;
 }
 
 td {
@@ -161,6 +163,7 @@ td {
   background-repeat: no-repeat;
   color: white;
   border-radius: 5px;
+  border: 1px solid #faebd7;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
@@ -226,22 +229,25 @@ Media Queries
     height: 450px;
   }
 
-  #tic-tac-toe {
-    font-size: 1.9em;
-  }
+  #tic-tac-toe p {
+    font-size: 1.5em;
+    padding-top: 3%;
+}
 
   .button-wraps p {
-    padding-top: 9%;
+    padding-top: 3%;
     font-size: 19px;
   }
 
   .button-wraps p:active {
-  font-size: 21px;
+    font-size: 21px;
 }
 
-  #scoreboard {
+
+  #lannister-score p, #stark-score p {
     font-size: 18px;
-  }
+    padding-top: 2.5%;
+}
 
 }
 
@@ -252,12 +258,12 @@ Media Queries
   }
 
   #tic-tac-toe p {
-    font-size: 1.5em;
+    font-size: 2em;
     padding-top: 3.5%;
   }
 
   .button-wraps p {
-    padding-top: 9%;
+    padding-top: 5%;
     font-size: 22px;
   }
 
