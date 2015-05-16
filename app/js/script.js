@@ -80,6 +80,7 @@ var count=1;
   });
 
 
+
 // Encapsulated functions //
   var checkNewGame = function () {
         // Checking for winner
@@ -183,17 +184,11 @@ var count=1;
 
   ////// Score Counting function ///////
   var scoreCounter = function (victor) {
-    var lastWon = false;
     if (victor === 'houseLannister') {
-      lastWon = 'houseLannister';
       lannisterScore++;
     } else if (victor === 'houseStark') {
-      lastWon = 'houseStark';
       starkScore++;
-    } else if (victor === 'tie') {
-      lastWon='tie';
     }
-    return lastWon;
   };
 
   //// Clear board function /////
