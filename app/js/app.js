@@ -6,6 +6,8 @@ var TicTacThrone = TicTacThrone || {};
 var game = TicTacThrone.Game;
 var board = TicTacThrone.Board;
 var count = 0;
+var foo = 'bar'
+var stuff = 'moar stuff'
 
 // Document.ready functions //
   $(document).ready(function(){
