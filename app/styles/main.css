@@ -2,13 +2,16 @@
 /************************
 POSITIONING
 *************************/
+body {
+  padding-top: 20px;
+}
 
 /** Containing div for entire game **/
 
-#container {
-  width: 315px;
-  height: 440px;
-  margin: 20px auto 0;
+#game-container {
+  height: 420px;
+  min-width: 300px;
+  margin-bottom: 10px;
 }
 
 /** Tic Tac Thrones Header Positioning **/
@@ -36,7 +39,8 @@ POSITIONING
 }
 
 .button-wraps p {
-  padding-top: 8%;
+  padding-top: 3%;
+  line-height: 2em;
 }
 
 /** Scoreboard positioning **/
@@ -69,6 +73,17 @@ tr {
   width: 100%;
 }
 
+/** Chat positioning **/
+#nameInput {
+  width: 32%;
+
+}
+
+#messageInput {
+  width: 65%;
+  float: right;
+  margin-left: 2%;
+}
 
 
 /**************************
@@ -78,7 +93,7 @@ STYLES
 /** Body styling for backgroung image and font **/
 body {
   background-image: url('../images/got-background.jpg');
-  background-size: 100% 250%;
+  background-size: fill;
   background-repeat: no-repeat;
   height: 100%;
   font-family: 'Cinzel', serif;
@@ -92,6 +107,7 @@ body {
   background-repeat: no-repeat;
   font-weight: bold;
   color: floralwhite;
+  border: 1px solid #faebd7;
 }
 
 /** Reset and Clear board button styles **/
@@ -102,11 +118,12 @@ body {
   text-align: center;
   font-size: 17px;
   color: floralwhite;
+  border: 1px solid #faebd7;
 }
 
 .button-wraps:hover {
   cursor: pointer;
-  text-shadow: 0.1em 0.1em 0.2em floralwhite;
+  text-shadow: 0.1em 0.1em 0.2em #faebd7;
 }
 
 .button-wraps p:active {
@@ -121,6 +138,7 @@ body {
   background-repeat: no-repeat;
   color: white;
   font-size: 15px;
+  border: 1px solid #faebd7;
 }
 
 /** Board table styling: static; **/
@@ -130,16 +148,42 @@ body {
   background-repeat: no-repeat;
   border-radius: 20px;
   padding: 10px;
-  border: 3px solid black;
+  border: 1px solid #faebd7;
 }
 
 td {
   background-color: rgba(178, 192, 193, 0.9);
   border-radius: 50%;
   padding: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+#chat-wrap {
+  background-image: url('../images/header-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #faebd7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#chat-wrap p {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: black;
+  border-radius: 5px;
 }
 
 /** Board table styling: hover **/
+
 .hover:hover {
   background-color:lightgrey;
   cursor: pointer;
@@ -152,6 +196,16 @@ td {
 
 /** Stark piece styles: clicked **/
 .house-stark {
+  background-image: url('../images/stark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  border-bottom-left-radius: 60% 90%;
+  border-bottom-right-radius: 60% 90%;
+}
+
+.house-stark:hover {
   background-image: url('../images/stark.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -182,47 +236,46 @@ Media Queries
 ************************************/
 
 /** First breakpoint: medium width viewport **/
-@media screen and (min-width: 480px) {
-  #container {
-    width: 400px;
-    height: 550px;
-    margin: 20px auto 0;
-  }
-
-  #tic-tac-toe {
-    font-size: 1.9em;
-  }
-
-  .button-wraps p {
-    padding-top: 9%;
-    font-size: 19px;
-  }
-
-  .button-wraps p:active {
-  font-size: 21px;
-}
-
-  #scoreboard {
-    font-size: 18px;
-  }
-
-}
-
-/** Second breakpoint: large width viewport **/
-@media screen and (min-width: 750px) {
-  #container {
-    width: 480px;
-    height: 660px;
-    margin: 20px auto 0;
+@media screen and (min-width: 450px) {
+  #game-container {
+    height: 450px;
   }
 
   #tic-tac-toe p {
     font-size: 1.5em;
+    padding-top: 3%;
+}
+
+  .button-wraps p {
+    padding-top: 3%;
+    font-size: 19px;
+  }
+
+  .button-wraps p:active {
+    font-size: 21px;
+}
+
+
+  #lannister-score p, #stark-score p {
+    font-size: 18px;
+    padding-top: 2.5%;
+}
+
+}
+
+/** Second breakpoint: large width viewport **/
+@media screen and (min-width: 700px) {
+  #game-container {
+    height: 700px;
+  }
+
+  #tic-tac-toe p {
+    font-size: 2em;
     padding-top: 3.5%;
   }
 
   .button-wraps p {
-    padding-top: 9%;
+    padding-top: 5%;
     font-size: 22px;
   }
 
